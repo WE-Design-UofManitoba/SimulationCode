@@ -2,7 +2,7 @@
 // Filename: ClockIterator.cs
 // Created: Eli Fridlender
 // Change history:
-// 02/19/2020 / Eli Fridlender
+// 03/05/2020 / Ben Gibson
 //
 /****************************************************/
 //Purpose: TODO
@@ -20,13 +20,28 @@ namespace ClockIterator.cs{
   class ClockIterator{
 
     //--Variables--//
-    private double deltaT;
-    private double Tdraw;
-    private double Tin;
+    private double deltaT;		//set in constructor
+    private double Tdraw;		//variable
+    private double Tin;			//variable
+	private double omega;		//variable
+	private Blades rotor;		//set in constructor
+	private Generator gen;		//set in constructor
+	
+	public ClockIterator(double dt, Blades r, Generator g) {
+		deltaT = dt;
+		rotor = r;
+		gen = g;
+	}
 
-    public double calculateOmega(){
-      double value = 10+10;
-      return value;
+	public void step() {
+		Tin = rotor.calcT(omega);
+		Tdraw = gen.calcT(omega);
+		omega = omega + (Tin - Tdraw)/gen.J;
+		return;
+	}
+
+    public double getOmega(){
+      return omega;
     }
 
     //setter methods
