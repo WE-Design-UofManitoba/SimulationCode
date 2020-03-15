@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 84f1d75790ec29448826b9be06f2c879
+labels:
+- Electricity
+- Farm
+- Generator
+- Turbine
+- Wind
+timeCreated: 1499242334
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
